@@ -1,6 +1,6 @@
-/* 1. Создайте базу из представленной картинки:
-      - у каждой таблицы должно быть поле id;
-      - id автоинкрементальный и является первичным ключом. */
+/* 1. РЎРѕР·РґР°Р№С‚Рµ Р±Р°Р·Сѓ РёР· РїСЂРµРґСЃС‚Р°РІР»РµРЅРЅРѕР№ РєР°СЂС‚РёРЅРєРё:
+      - Сѓ РєР°Р¶РґРѕР№ С‚Р°Р±Р»РёС†С‹ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РїРѕР»Рµ id;
+      - id Р°РІС‚РѕРёРЅРєСЂРµРјРµРЅС‚Р°Р»СЊРЅС‹Р№ Рё СЏРІР»СЏРµС‚СЃСЏ РїРµСЂРІРёС‡РЅС‹Рј РєР»СЋС‡РѕРј. */
 create table employees (
 	id serial, 
 	employee_name varchar(25) not null,
@@ -74,7 +74,7 @@ create table claim (
 		references employees (id)
 );
 
--- 2. Заполните таблицы данными. Не менее 10 строк в каждой таблице.
+-- 2. Р—Р°РїРѕР»РЅРёС‚Рµ С‚Р°Р±Р»РёС†С‹ РґР°РЅРЅС‹РјРё. РќРµ РјРµРЅРµРµ 10 СЃС‚СЂРѕРє РІ РєР°Р¶РґРѕР№ С‚Р°Р±Р»РёС†Рµ.
 insert into employees (id, employee_name) values
 	(default, 'Everett'),
 	(default, 'Lola'),
@@ -265,14 +265,14 @@ insert into claim (id, service_id, employee_id, material_id, claim_date, sales_m
 	(default, 10, 2, 2, '2007-03-22', 3),
 	(default, 7, 35, 1, '2008-01-19', 34);
 
--- 3. Добавить таблицу Suppliers с полями id, name.
+-- 3. Р”РѕР±Р°РІРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ Suppliers СЃ РїРѕР»СЏРјРё id, name.
 create table "Suppliers" (
 	id serial,
 	name varchar(50),
 	primary key (id)
 );
 
--- 4. Добавить 10 строк поставщиков в таблицу Suppliers.
+-- 4. Р”РѕР±Р°РІРёС‚СЊ 10 СЃС‚СЂРѕРє РїРѕСЃС‚Р°РІС‰РёРєРѕРІ РІ С‚Р°Р±Р»РёС†Сѓ Suppliers.
 insert into "Suppliers" (id, name) values
 	(default, 'Mondi'),
 	(default, 'ICE SHOP'),
@@ -285,15 +285,15 @@ insert into "Suppliers" (id, name) values
 	(default, 'Matroskin Kids'),
 	(default, 'KINGKIT');
 
--- 5. Обновить таблицу Materials. Добавить поле supplier_id которое связано с полем id в таблице Suppliers.
+-- 5. РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ Materials. Р”РѕР±Р°РІРёС‚СЊ РїРѕР»Рµ supplier_id РєРѕС‚РѕСЂРѕРµ СЃРІСЏР·Р°РЅРѕ СЃ РїРѕР»РµРј id РІ С‚Р°Р±Р»РёС†Рµ Suppliers.
 alter table materials add column supplier_id int;
 
 alter table materials add constraint FK_materials_supplier_id foreign key (supplier_id) references "Suppliers" (id);
 
--- 6. Обновить таблицу Employees. Добавить varchar поле surname на 50 символов.
+-- 6. РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ Employees. Р”РѕР±Р°РІРёС‚СЊ varchar РїРѕР»Рµ surname РЅР° 50 СЃРёРјРІРѕР»РѕРІ.
 alter table employees add column surname varchar(50);
 
--- 7. Обновить таблицу Salary. Добавить varchar поле currency на 7 символов.
+-- 7. РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ Salary. Р”РѕР±Р°РІРёС‚СЊ varchar РїРѕР»Рµ currency РЅР° 7 СЃРёРјРІРѕР»РѕРІ.
 alter table salary add column currency varchar(7);
 
 	
